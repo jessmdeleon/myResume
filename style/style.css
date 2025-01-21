@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap');
 
-:root{
-
+/* Root variables for light and dark themes */
+:root {
     --mainTextColor-light: #000;
     --secondaryTextColor-light: rgb(51, 51, 51);
     --mainLinkColor-light: #0da2b8;
@@ -9,55 +9,67 @@
     --mainBgColor-light: rgb(249, 250, 251);
 
     --mainTextColor-dark: #fff;
-    --secondaryTextColor-dark:#adb0b1;
+    --secondaryTextColor-dark: #adb0b1;
     --mainLinkColor-dark: rgb(30, 190, 214);
-    --mainBorderColor-dark:#2b3031;
-    --mainBgColor-dark:#131415; 
+    --mainBorderColor-dark: #2b3031;
+    --mainBgColor-dark: #131415;
 
-    --mainTextColor:var(--mainTextColor-dark);
-    --secondaryTextColor:var(--secondaryTextColor-dark);
-    --mainLinkColor:var(--mainLinkColor-dark);
+    --mainTextColor: var(--mainTextColor-dark);
+    --secondaryTextColor: var(--secondaryTextColor-dark);
+    --mainLinkColor: var(--mainLinkColor-dark);
     --mainBorderColor: var(--mainBorderColor-dark);
     --mainBgColor: var(--mainBgColor-dark);
 }
 
-*{
-    font-family: 'Readex Pro';
+/* Universal Styles */
+* {
+    font-family: 'Readex Pro', sans-serif;
     line-height: 1.5em;
     box-sizing: border-box;
     color: var(--mainTextColor);
+    margin: 0;
+    padding: 0;
 }
 
-body{
+body {
     background-color: var(--mainBgColor);
+    margin: 0;
+    padding: 0;
 }
 
-p, span, li{
+/* Text Elements */
+p, span, li {
     color: var(--secondaryTextColor);
     font-size: 1em;
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--mainLinkColor);
     font-weight: 500;
+    transition: color 0.3s;
 }
 
-li{
+a:hover {
+    color: var(--mainLinkColor-dark); /* Hover effect */
+}
+
+li {
     line-height: 1.9em;
 }
 
+/* Hero Section */
 #wrapper-hero {
     display: flex;
-    justify-content: center; /* Centers content horizontally */
-    align-items: center; /* Centers content vertically */
-    gap: 2em; /* Adds space between the image and the text */
-    margin-top: 2em; /* Adds some spacing at the top */
-    text-align: left; /* Ensures the text is aligned properly */
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-top: 2em;
+    text-align: left;
 }
 
 #profile-pic {
-    border-radius: 50%; /* Circular profile picture */
+    border-radius: 50%;
     width: 150px;
     height: 150px;
     object-fit: cover;
@@ -77,51 +89,44 @@ li{
     margin: 0.5em 0;
 }
 
-#wrapper-hero a {
-    color: var(--mainLinkColor);
-    text-decoration: none;
-}
-
+/* Social Links */
 #social--list {
     display: flex;
-    justify-content: center; /* Center the links */
-    gap: 2em; /* Space between each link */
+    justify-content: center;
+    gap: 2em;
     margin-top: 1em;
 }
 
 #social--list a {
     color: var(--secondaryTextColor);
     font-size: 1em;
-    transition: color 0.3s;
 }
 
 #social--list a:hover {
     color: var(--mainLinkColor);
 }
 
-
-
-
-#container--main{
+/* Main Container */
+#container--main {
     max-width: 700px;
     margin: 0 auto;
 }
 
-.section--page{
+/* Sections */
+.section--page {
     padding-top: 1em;
     padding-bottom: 1em;
 }
 
-#bio, a{
-    font-weight: 300;
-}
-
-
-#qualifications--list{
+/* Qualifications List */
+#qualifications--list {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-#wrapper--techstack__items{
+/* Tech Stack Cards */
+#wrapper--techstack__items {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
@@ -134,7 +139,8 @@ li{
     border-radius: 5px;
 }
 
-.card--work-history{
+/* Work History */
+.card--work-history {
     border-left: 1px solid var(--mainBorderColor);
     margin-left: 3em;
     margin-top: 3em;
@@ -142,25 +148,28 @@ li{
     padding-left: 2em;
 }
 
-.line-break{
+.line-break {
     background-color: var(--mainBorderColor);
     height: 1px;
+    margin: 1em 0;
 }
 
-.card-container{
+/* Project Cards */
+.card-container {
     display: flex;
     flex-direction: row;
-    max-height: 50rem;
+    gap: 1em;
+    flex-wrap: wrap;
 }
 
-.project-img{
+.project-img {
     width: 100%;
     height: 300px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.project-title a h2:hover{
+.project-title a h2:hover {
     display: none;
     color: var(--mainTextColor);
     position: absolute;
@@ -170,8 +179,105 @@ li{
     border-radius: 5px;
     width: 90%;
     text-align: center;
-    
 }
+
 .project {
     position: relative;
+}
+
+
+/* Styling for the form container */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Form labels */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--mainTextColor);
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid var(--mainBorderColor);
+    border-radius: 4px;
+    background-color: #2b2b2b;
+    color: var(--mainTextColor);
+}
+
+/* Submit button */
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: var(--mainLinkColor);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #007bff; /* Slightly lighter color for hover effect */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+}
+
+h2{
+    text-align: center;
+}
+
+/* Styling for the Send Message Button */
+.sButton {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 10px;
+    background-color: #1fb61f; /* Vibrant green color */
+    background-image: linear-gradient(to right, #1fb61f, #15a82b);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Makes the button full width within the form container */
+}
+
+/* Hover and Focus Effects for the Button */
+.sButton:hover,
+.sButton:focus {
+    background-color: #17a32a; /* Slightly darker green on hover */
+    outline: none;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.messageToYou{
+    text-align: center;
+    font-size: 25px;
+}
+
+.btn{
+    text-align: center;
+    object-position: center;
+    
 }
